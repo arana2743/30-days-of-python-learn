@@ -1,9 +1,12 @@
 class Duck:
+    sound = 'Quaaack!'
+    walking = 'Walking likes a duck'
+
     def quack(self):
-        print('Quaaack!')
+        print(self.sound)
 
     def walk(self):
-        print('Walks likes a duck')
+        print(self.walking)
 
 if __name__ == '__main__':
     donald = Duck()
