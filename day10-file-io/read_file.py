@@ -12,6 +12,8 @@ def append_file():
 def main():
     read_file()
     append_file()
+    print("New contents after writing to file are: \n")
+    read_file()
 
 if __name__ == '__main__':
     main()
