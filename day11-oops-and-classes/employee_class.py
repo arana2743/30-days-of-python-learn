@@ -1,6 +1,6 @@
 class Employee:
     company_name = 'Net Solvents'
-    raise_2020 = 22
+    raise_amount = 22
     num_of_employess = 0
     def __init__(self, fname, lname, email, pay):
         # instance variables
@@ -16,7 +16,17 @@ class Employee:
 
     # using class variable : raise_2020 here 
     def apply_raise(self):
-        self.pay += int(self.pay * self.raise_2020 / 100)
+        self.pay += int(self.pay * self.raise_amount / 100)
+
+    # adding class methods
+    @classmethod
+    def set_raise_amt(cls, amount):
+        cls.raise_amount = amount
+
+    # adding static methods
+    @staticmethod
+    def is_workday():
+
 def main():
     emp_1 = Employee('John', 'Test', 'john.test@example.com', 42000)
     emp_2 = Employee('Doe', 'Test', 'doe.test@example.com', 53000)
@@ -41,6 +51,11 @@ def main():
     emp_2.apply_raise()
     print('After raise, Employee 2 salary: {}'.format(emp_2.pay))
 
+
+    print('Changing the raise amount for employees')
+    Employee.set_raise_amt(25)
+    emp_2.apply_raise()
+    print('Employee 2 salary after new raise: {}'.format(emp_2.pay))
 
 
 
