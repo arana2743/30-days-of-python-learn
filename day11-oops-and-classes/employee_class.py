@@ -25,7 +25,11 @@ class Employee:
 
     # adding static methods
     @staticmethod
-    def is_workday():
+    def is_workday(day):
+        # weekday numbers 5 and 6 are for sat and sun respectively
+        if day.weekday() == 5 or day.weekday() == 6:
+            return False
+        return True
 
 def main():
     emp_1 = Employee('John', 'Test', 'john.test@example.com', 42000)
@@ -58,6 +62,10 @@ def main():
     print('Employee 2 salary after new raise: {}'.format(emp_2.pay))
 
 
+    # check if workday for empoyees
+    import datetime
+    my_date = datetime.date(2020, 6, 27)
+    print('is today a workday ? : {}'.format(Employee.is_workday(my_date)))
 
 if __name__ == '__main__':
     main()
